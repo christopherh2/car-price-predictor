@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Css file linked so flask can read it -->
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}" >
+<meta charset="UTF-8">
+
+<title>Testing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<h1>Enter your name</h1>
+<!--Use form class to create a form 
+Use the input class to create fields for the form
+br means break/newline 
+-->
+	
+<h2>Stuff</h2>
+
+<!-- Use form tag to know when user clicked button-->
+<form action="/pg2" method='POST'>
+<label for="title">Title:</label>
+<select name='title'>
+<option value=''>Title</option>
+<option value="Mr.">Mr.</option>
+<option value="Mrs.">Mrs.</option>
+<option value="Ms.">Ms.</option>
+<option value="Dr.">Dr</option>
+<option value=''>None</option>
+</select>
+
+</br>
+</br>
+<input type='text' name='fname', placeholder='First name'></input>
+<input type='text' name='lname', placeholder='Last name (optional)'></input></br>
+<button type="submit" name="submit", value="Submit" class="button">Submit</button>
+<button type="reset" name="reset" class="button">Clear</button></br>
+</form>
+
+
+
+</body>
+</html>

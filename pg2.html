@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Css file linked so flask can read it -->
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}" >
+<meta charset="UTF-8">
+
+<title>Testing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<h1>Hello</h1>
+<!--Use form class to create a form 
+Use the input class to create fields for the form
+br means break/newline 
+-->
+	
+
+{% if fname %}
+	<p> {{'Hi {} {} {}'.format(title, fname, lname)}} </p>
+{% endif %}
+
+
+
+</body>
+</html>
