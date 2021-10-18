@@ -5,41 +5,109 @@
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}" >
 <meta charset="UTF-8">
 
-<title>Testing</title>
+<title>BMW Price Predictor</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 
 
-<h1>Enter your name</h1>
+<h1>BMW Price Predictor</h1>
 <!--Use form class to create a form 
 Use the input class to create fields for the form
-br means break/newline 
 -->
-	
-<h2>Stuff</h2>
 
-<!-- Use form tag to know when user clicked button-->
-<form action="/pg2" method='POST'>
-<label for="title">Title:</label>
-<select name='title'>
-<option value=''>Title</option>
-<option value="Mr.">Mr.</option>
-<option value="Mrs.">Mrs.</option>
-<option value="Ms.">Ms.</option>
-<option value="Dr.">Dr</option>
-<option value=''>None</option>
+<p1> 
+This tool will help you get an estimate of your car's price. </br>
+Fill the form out to get your estimate!
+</p1>
+
+</br>
+</br>
+<h2>Enter Your Car's Information</h2>
+
+<!-- Form redirects to /form page and uses post method to send data-->
+<!-- Form has client side validation -->
+<form name="carInfo" action="/form" autocomplete='off' method='POST' onsubmit="return validateForm()" required>
+
+<!-- Dropdown menu -->
+<!-- selection of model -->
+<select name='model' style="padding:2px 19.5px" required>
+<option value="" disabled selected>Select your model</option>
+<option value="1 Series">1 Series</option>
+<option value="2 Series">2 Series</option>
+<option value="3 Series">3 Series</option>
+<option value="4 Series">4 Series</option>
+<option value="5 Series">5 Series</option>
+<option value="6 Series">6 Series</option>
+<option value="7 Series">7 Series</option>
+<option value="8 Series">8 Series</option>
+<option value="X1">X1</option>
+<option value="X2">X2</option>
+<option value="X3">X3</option>
+<option value="X4">X4</option>
+<option value="X5">X5</option>
+<option value="X6">X6</option>
+<option value="X7">X7</option>
+<option value="M2">M2</option>
+<option value="M3">M3</option>
+<option value="M4">M4</option>
+<option value="M5">M5</option>
+<option value="M6">M6</option>
+<option value="Z3">Z3</option>
+<option value="Z4">Z4</option>
+<option value="i3">i3</option>
+<option value="i8">i8</option>
+</select>
+
+<!--selection of year -->
+<select name='year' style="padding:2px 25px" required>
+<option value="" disabled selected>Select your year</option>
+<option value=1998>1998</option>
+<option value=1999>1999</option>
+<option value=2000>2000</option>
+<option value=2001>2001</option>
+<option value=2002>2002</option>
+<option value=2003>2003</option>
+<option value=2004>2004</option>
+<option value=2005>2005</option>
+<option value=2006>2006</option>
+<option value=2007>2007</option>
+<option value=2008>2008</option>
+<option value=2009>2009</option>
+<option value=2010>2010</option>
+<option value=2011>2011</option>
+<option value=2012>2012</option>
+<option value=2013>2013</option>
+<option value=2014>2014</option>
+<option value=2015>2015</option>
+<option value=2016>2016</option>
+<option value=2017>2017</option>
+<option value=2018>2018</option>
+<option value=2019>2019</option>
+<option value=2020>2020</option>
 </select>
 
 </br>
+
+<!-- Text inputs -->
+<input type='number' min=0 name='mileage' placeholder='Mileage (miles)' required />
+<input type='number' step=0.1 min=0 name='mpg', placeholder='Efficiency (mpg)' required  />
+<input type='number' name='engineSize' step=0.1 min=0 placeholder='Engine size (L)' required />
 </br>
-<input type='text' name='fname', placeholder='First name'></input>
-<input type='text' name='lname', placeholder='Last name (optional)'></input></br>
-<button type="submit" name="submit", value="Submit" class="button">Submit</button>
-<button type="reset" name="reset" class="button">Clear</button></br>
+</br>
+<button type = "submit" class="button">Submit</button>
+<button type="reset" name="reset" class="button">Clear </button>
+</br>
+
 </form>
 
-
+</br>
+{% if error %}
+<div class="alert alert-primary" role="alert">
+  {{error}}
+</div>
+{% endif %}
 
 </body>
 </html>
