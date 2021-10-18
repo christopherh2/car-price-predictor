@@ -5,25 +5,36 @@
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}" >
 <meta charset="UTF-8">
 
-<title>Testing</title>
+<title>BMW Price Predictor</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 
-<h1>Hello</h1>
-<!--Use form class to create a form 
-Use the input class to create fields for the form
-br means break/newline 
+<h1>BMW Price Predictor</h1>
+<!-- Create a table with the user generated parameters
+Include a the estimated price of the car below
 -->
-	
+<h2> Your car's info </h2>
+      <table border = 1>
+         {% for i in range(5) %}
+            <tr>
+               <th> {{ cols[i] }} </th>
+               <td> {{ data[i] }} </td>
+            </tr>
+         {% endfor %}
+      </table>
 
-{% if fname %}
-	<p> {{'Hi {} {} {}'.format(title, fname, lname)}} </p>
-{% endif %}
 
 </br>
+
+{% print("Your {} BMW {} is worth about {} Euros").format(data[1],data[0],prediction)%}
+<p> Note that the price is only an estimation and may be inaccurate</p>
+</br>
+
+<!--Back button allows user to restart  -->
 <button href= "#" onclick="history.go(-1)" class="button">Go Back</button>
+
 
 </body>
 </html>
