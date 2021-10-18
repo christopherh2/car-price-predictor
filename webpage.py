@@ -5,7 +5,8 @@ import numpy as np
 from pycaret.regression import *
 
 # Change the template folder as necessary
-app = Flask(__name__, template_folder='os.getcwd()')
+# Template folder will be default location which is a folder called template
+app = Flask(__name__)
 
 # home screen renders pg 1 file
 @app.route('/')
