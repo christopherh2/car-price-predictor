@@ -15,7 +15,7 @@ def home():
 
 
 # Redirect to pg2 when form is submitted
-@app.route('/pg2', methods=['POST'])
+@app.route('/form', methods=['POST'])
 def submit():
     # Method will be post on form submit
     if request.method== 'POST':
