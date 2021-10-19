@@ -56,14 +56,16 @@ def submit():
                 
                 
             # Load model and set columns
-            model = load_model("model2")
+            lgbm = load_model("model2")
             cols = ['model','year','mileage','mpg','engineSize']
             data = [x for x in request.form.values()]
             final=np.array(data)
-
+            
+            # Arrange data and columns into a datafram
             df = pd.DataFrame(data=[final], columns=cols)
-
-            pred= predict_model(model, data=df)
+            
+            # Make prediction using the dataframe
+            pred= predict_model(lgbm, data=df)
             prediction = round(pred.Label[0],2)
         
         return render_template('pg2.html', data=data, cols=cols, prediction=prediction)
